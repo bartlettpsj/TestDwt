@@ -29,6 +29,7 @@
     "bower-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
     "debug": "^2.2.0",
+    "dwt": "^13.0.0",
     "elasticsearch": "^11.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "exports-loader": "^0.6.4",
