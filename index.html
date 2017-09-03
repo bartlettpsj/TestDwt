@@ -7,12 +7,19 @@
 </head>
 <body>
 <div><select size="1" id="source" style="position: relative; width: 220px;"></select>
-<input type="button" value="Scan" onclick="AcquireImage();" />
+    <input type="button" value="Scan" onclick="AcquireImage();"/>
 </div>
-Load Image: <button onclick="showLoadDialog();">Load</button>
-<div>
+Load Image:
+<button onclick="showLoadDialog();">Load</button>
+Upload Image:
+<button onclick="uploadImage();">Upload</button>
 
+<div>
+    <button onclick="loadWebTwain();">Load WebTwain</button>
+    <button onclick="unloadWebTwain();">Unload WebTwain</button>
 </div>
+
+
 <!-- dwtcontrolContainer is the default div id for Dynamic Web TWAIN control.
 If you need to rename the id, you should also change the id in the dynamsoft.webtwain.config.js accordingly. -->
 <div id="dwtcontrolContainer"></div>

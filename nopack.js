@@ -48,3 +48,28 @@ function showLoadDialog() {
       (errorCode, errorString) => { console.log(errorCode); }); // Failure
   }
 }
+
+function uploadImage() {
+  DWObject.HTTPUpload('localhost:3000/api/images?access_token=z0iCNS0M2SZwyXRrbPF08LP4XMWDCc9eByDEyPPlD7TYFC2lrgZ2BvBGEj7mGs0u',
+    [0], // indices,
+    EnumDWT_ImageType.IT_PDF,
+    EnumDWT_UploadDataFormat.Binary,
+    (httpResponse) => { console.log('Success'); },
+    (errorCode, errorString) => { console.log('Failure', errorCode, errorString); }
+  );
+}
+
+function unloadWebTwain() {
+  console.log('Unloading WebTwain');
+  if (DWObject) {
+    Dynamsoft.WebTwainEnv.Unload();
+    console.log('Unloaded completed.');
+  }
+}
+
+function loadWebTwain() {
+  console.log('Loading WebTwain');
+
+  Dynamsoft.WebTwainEnv.Load();
+  console.log('Load completed.');
+}

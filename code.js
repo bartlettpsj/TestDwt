@@ -55,6 +55,17 @@ function showLoadDialog() {
   }
 }
 
+function uploadImage() {
+  DWObject.HTTPUpload('localhost:3000/api/images?access_token=z0iCNS0M2SZwyXRrbPF08LP4XMWDCc9eByDEyPPlD7TYFC2lrgZ2BvBGEj7mGs0u',
+    [0], // indices,
+    dwt.EnumDWT_ImageType.IT_PDF,
+    dwt.EnumDWT_UploadDataFormat.Binary,
+    (httpResponse) => { console.log('Success'); },
+    (errorCode, errorString) => { console.log('Failure', errorCode, errorString); }
+  );
+
+}
+
 function unloadWebTwain() {
   console.log('Unloading WebTwain');
   if (DWObject) {
@@ -74,4 +85,5 @@ module.exports.showLoadDialog = showLoadDialog;
 module.exports.acquireImage = AcquireImage;
 module.exports.unloadWebTwain = unloadWebTwain;
 module.exports.loadWebTwain = loadWebTwain;
+module.exports.uploadImage = uploadImage;
 
