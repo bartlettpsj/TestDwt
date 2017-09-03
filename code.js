@@ -56,7 +56,7 @@ function showLoadDialog() {
 }
 
 function uploadImage() {
-  DWObject.HTTPUpload('localhost:3000/api/images?access_token=z0iCNS0M2SZwyXRrbPF08LP4XMWDCc9eByDEyPPlD7TYFC2lrgZ2BvBGEj7mGs0u',
+  DWObject.HTTPUpload('localhost:3000/api/images?access_token=jXO0ygDP4VzWFznJxXT5qiPPLHknjGBt6R1wQbtBl8jVQ0lnqHjFN2J3XkKz5N1l',
     [0], // indices,
     dwt.EnumDWT_ImageType.IT_PDF,
     dwt.EnumDWT_UploadDataFormat.Binary,
