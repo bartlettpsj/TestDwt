@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "sh ./dev.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ws": "http-server"
   },
   "author": "",
   "license": "ISC",
@@ -29,12 +30,13 @@
     "bower-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
     "debug": "^2.2.0",
-    "dwt": "^13.0.0",
+    "dwt": "^13.1.0",
     "elasticsearch": "^11.0.1",
-    "extract-text-webpack-plugin": "^1.0.1",
     "exports-loader": "^0.6.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
+    "http-server": "^0.10.0",
     "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
     "left-pad": "^1.1.1",
@@ -90,5 +92,4 @@
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   }
-
 }

@@ -1,8 +1,14 @@
+/**
+ * This is not using webpack
+ */
+
+console.log('Using Mac license - No PACK Version');
+Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAFsEPs/Oq0S+AZ25UDlYYgvj4verY4ShlP2FS3hHBj/rskJTTrNHdZzJHGZgFXSoHYKXG9AhYLVcnCs9YOAdg2U=';
+Dynamsoft.WebTwainEnv.Trial = false;
 
 Dynamsoft.WebTwainEnv.Containers = [{ContainerId:'dwtcontrolContainer',Width:830,Height:350}];
 Dynamsoft.WebTwainEnv.Load();
 Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', Dynamsoft_OnReady);  // Register OnWebTwainReady event. This event fires as soon as Dynamic Web TWAIN is initialized and ready to be used
-console.log('this is the nopackversion');
 
 var DWObject;
 
@@ -35,9 +41,6 @@ function showLoadDialog() {
   console.log('Loading image - ', DWObject);
   if (DWObject) {
     DWObject.IfShowFileDialog = true;
-    //DWObject.Addon.PDF.SetResolution(200);
-    //DWObject.Addon.PDF.SetConvertMode(EnumDWT_ConverMode.CM_RENDERALL);
-//      DWObject.LoadImageEx("", EnumDWT_ImageType.IT_ALL, OnPDFSuccess, OnPDFFailure);
 
     DWObject.LoadImageEx("",
       EnumDWT_ImageType.IT_ALL,
