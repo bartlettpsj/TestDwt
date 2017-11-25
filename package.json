@@ -11,8 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dwt": "^13.1.0",
+    "dwt": "^13.2.0",
+    "dbrjs": "^5.2.0",
     "exports-loader": "^0.6.4",
+    "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",
     "http-server": "^0.10.0",
     "webpack": "^1.12.14",
@@ -23,5 +25,8 @@
     "html-webpack-plugin": "^2.22.0",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.2.3"
   }
 }

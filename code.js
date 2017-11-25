@@ -7,15 +7,29 @@ var Dynamsoft = dwt.Dynamsoft;
 console.log('WebPack version dwt is: ' + dwt);
 
 // Mac
-console.log('Using Mac license');
-Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAFsEPs/Oq0S+AZ25UDlYYgvj4verY4ShlP2FS3hHBj/rskJTTrNHdZzJHGZgFXSoHYKXG9AhYLVcnCs9YOAdg2U=';
+// console.log('Using Mac license');
+// Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAFsEPs/Oq0S+AZ25UDlYYgvj4verY4ShlP2FS3hHBj/rskJTTrNHdZzJHGZgFXSoHYKXG9AhYLVcnCs9YOAdg2U=';
+console.log('Using Windows license - WebPack Version');
+Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAHyXpWtN2w3efU3yzeztfKjyTKGgVzH2+qlGxuJ85jP21VXJIP0NRLox9ELZUNc/VA+jzAupkSMA+EnH9dq/H3o=';
 Dynamsoft.WebTwainEnv.Trial = false;
+Dynamsoft.WebTwainEnv.ResourcesPath = "Resources";
 
 Dynamsoft.WebTwainEnv.AutoLoad = false;
 
 Dynamsoft.WebTwainEnv.Containers = [{ContainerId:'dwtcontrolContainer',Width:830,Height:350}];
 Dynamsoft.WebTwainEnv.Load();
 Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', Dynamsoft_OnReady);  // Register OnWebTwainReady event. This event fires as soon as Dynamic Web TWAIN is initialized and ready to be used
+
+// Add the barcode library too
+const dbr = require('exports?dynamsoft&dynamsoft.dbrEnv!dbrjs/dist/dynamsoft.barcode.min');
+
+// This is the windows product key - no other browsers yet supported (but promised)
+dbr.dynamsoft.dbrEnv.productKey = 'f0068NQAAAD1sVPYujjppZYV/OosOhzeleTmRAnVLAAPARtoW5ACw3cC2u4dOG7RIndJalj9D/kAQ/sVH5eU+w5cqGnXMl9E='; // v5.x (x)
+dbr.dynamsoft.dbrEnv.resourcesPath = "/Resources";
+
+const dbrObject = new dbr.dynamsoft.dbrEnv.BarcodeReader();
+dbr.dynamsoft.dbrEnv.init( () => { console.log('Init Ok')}, (error) => { console.log(`Init failed: ${error}`); });
+
 
 var DWObject;
 

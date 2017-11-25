@@ -2,9 +2,14 @@
  * This is not using webpack
  */
 
-console.log('Using Mac license - No PACK Version');
-Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAFsEPs/Oq0S+AZ25UDlYYgvj4verY4ShlP2FS3hHBj/rskJTTrNHdZzJHGZgFXSoHYKXG9AhYLVcnCs9YOAdg2U=';
+// console.log('Using Mac license - No PACK Version');
+// Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAFsEPs/Oq0S+AZ25UDlYYgvj4verY4ShlP2FS3hHBj/rskJTTrNHdZzJHGZgFXSoHYKXG9AhYLVcnCs9YOAdg2U=';
+console.log('Using Windows license - No PACK Version');
+Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAHyXpWtN2w3efU3yzeztfKjyTKGgVzH2+qlGxuJ85jP21VXJIP0NRLox9ELZUNc/VA+jzAupkSMA+EnH9dq/H3o=';
 Dynamsoft.WebTwainEnv.Trial = false;
+// Dynamsoft.WebTwainEnv.ResourcesPath = "http://pauls-imac:4000/Resources";
+Dynamsoft.WebTwainEnv.ResourcesPath = "Resources";
+
 
 Dynamsoft.WebTwainEnv.Containers = [{ContainerId:'dwtcontrolContainer',Width:830,Height:350}];
 Dynamsoft.WebTwainEnv.Load();
