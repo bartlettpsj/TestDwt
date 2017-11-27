@@ -2,23 +2,9 @@
  * This is using WebPack
  */
 
-const dwt = require('exports?Dynamsoft&OnWebTwainNotFoundOnMacCallback&EnumDWT_PixelType&EnumDWT_BorderStyle&EnumDWT_MessageType&EnumDWT_Cap&EnumDWT_CapType&EnumDWT_TransferMode&EnumDWT_FileFormat&EnumDWT_TIFFCompressionType&EnumDWT_InterpolationMethod&EnumDWT_ImageType&EnumDWT_PDFCompressionType&EnumDWT_ShowMode&EnumDWT_CapValueType&EnumDWT_UnitType&EnumDWT_DUPLEX&EnumDWT_CapLanguage&EnumDWT_CapSupportedSizes&EnumDWT_CapFeederAlignment&EnumDWT_CapFeederOrder&EnumDWT_CapPrinter&EnumDWT_CapPrinterMode&EnumDWT_CapBitdepthReduction&EnumDWT_CapBitOrder&EnumDWT_CapFilterType&EnumDWT_CapFlash&EnumDWT_CapFlipRotation&EnumDWT_CapImageFilter&EnumDWT_CapLightPath&EnumDWT_CapLightSource&EnumDWT_MagType&EnumDWT_CapNoiseFilter&EnumDWT_CapORientation&EnumDWT_CapOverscan&EnumDWT_CapPixelFlavor&EnumDWT_CapPlanarChunky&EnumDWT_DataSourceStatus&EnumDWT_FitWindowType&EnumDWT_UploadDataFormat&EnumDWT_MouseShape!dwt/dist/dynamsoft.webtwain.min');
-var Dynamsoft = dwt.Dynamsoft;
+var dwt; // = require('exports?Dynamsoft&OnWebTwainNotFoundOnMacCallback&EnumDWT_PixelType&EnumDWT_BorderStyle&EnumDWT_MessageType&EnumDWT_Cap&EnumDWT_CapType&EnumDWT_TransferMode&EnumDWT_FileFormat&EnumDWT_TIFFCompressionType&EnumDWT_InterpolationMethod&EnumDWT_ImageType&EnumDWT_PDFCompressionType&EnumDWT_ShowMode&EnumDWT_CapValueType&EnumDWT_UnitType&EnumDWT_DUPLEX&EnumDWT_CapLanguage&EnumDWT_CapSupportedSizes&EnumDWT_CapFeederAlignment&EnumDWT_CapFeederOrder&EnumDWT_CapPrinter&EnumDWT_CapPrinterMode&EnumDWT_CapBitdepthReduction&EnumDWT_CapBitOrder&EnumDWT_CapFilterType&EnumDWT_CapFlash&EnumDWT_CapFlipRotation&EnumDWT_CapImageFilter&EnumDWT_CapLightPath&EnumDWT_CapLightSource&EnumDWT_MagType&EnumDWT_CapNoiseFilter&EnumDWT_CapORientation&EnumDWT_CapOverscan&EnumDWT_CapPixelFlavor&EnumDWT_CapPlanarChunky&EnumDWT_DataSourceStatus&EnumDWT_FitWindowType&EnumDWT_UploadDataFormat&EnumDWT_MouseShape!dwt/dist/dynamsoft.webtwain.min');
+var Dynamsoft; // = dwt.Dynamsoft;
 console.log('WebPack version dwt is: ' + dwt);
-
-// Mac
-// console.log('Using Mac license');
-// Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAFsEPs/Oq0S+AZ25UDlYYgvj4verY4ShlP2FS3hHBj/rskJTTrNHdZzJHGZgFXSoHYKXG9AhYLVcnCs9YOAdg2U=';
-console.log('Using Windows license - WebPack Version');
-Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAHyXpWtN2w3efU3yzeztfKjyTKGgVzH2+qlGxuJ85jP21VXJIP0NRLox9ELZUNc/VA+jzAupkSMA+EnH9dq/H3o=';
-Dynamsoft.WebTwainEnv.Trial = false;
-Dynamsoft.WebTwainEnv.ResourcesPath = "Resources";
-
-Dynamsoft.WebTwainEnv.AutoLoad = false;
-
-Dynamsoft.WebTwainEnv.Containers = [{ContainerId:'dwtcontrolContainer',Width:830,Height:350}];
-Dynamsoft.WebTwainEnv.Load();
-Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', Dynamsoft_OnReady);  // Register OnWebTwainReady event. This event fires as soon as Dynamic Web TWAIN is initialized and ready to be used
 
 // Add the barcode library too
 const dbr = require('exports?dynamsoft&dynamsoft.dbrEnv!dbrjs/dist/dynamsoft.barcode.min');
@@ -29,6 +15,25 @@ dbr.dynamsoft.dbrEnv.resourcesPath = "/Resources";
 
 const dbrObject = new dbr.dynamsoft.dbrEnv.BarcodeReader();
 dbr.dynamsoft.dbrEnv.init( () => { console.log('Init Ok')}, (error) => { console.log(`Init failed: ${error}`); });
+
+const setupWebTwain = () => {
+  dwt = require('exports?Dynamsoft&EnumDWT_PixelType&EnumDWT_BorderStyle&EnumDWT_MessageType&EnumDWT_Cap&EnumDWT_CapType&EnumDWT_TransferMode&EnumDWT_FileFormat&EnumDWT_TIFFCompressionType&EnumDWT_InterpolationMethod&EnumDWT_ImageType&EnumDWT_PDFCompressionType&EnumDWT_ShowMode&EnumDWT_CapValueType&EnumDWT_UnitType&EnumDWT_DUPLEX&EnumDWT_CapLanguage&EnumDWT_CapSupportedSizes&EnumDWT_CapFeederAlignment&EnumDWT_CapFeederOrder&EnumDWT_CapPrinter&EnumDWT_CapPrinterMode&EnumDWT_CapBitdepthReduction&EnumDWT_CapBitOrder&EnumDWT_CapFilterType&EnumDWT_CapFlash&EnumDWT_CapFlipRotation&EnumDWT_CapImageFilter&EnumDWT_CapLightPath&EnumDWT_CapLightSource&EnumDWT_MagType&EnumDWT_CapNoiseFilter&EnumDWT_CapORientation&EnumDWT_CapOverscan&EnumDWT_CapPixelFlavor&EnumDWT_CapPlanarChunky&EnumDWT_DataSourceStatus&EnumDWT_FitWindowType&EnumDWT_UploadDataFormat&EnumDWT_MouseShape!dwt/dist/dynamsoft.webtwain.min');
+  Dynamsoft = dwt.Dynamsoft;
+
+  // Mac
+  // console.log('Using Mac license');
+  // Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAFsEPs/Oq0S+AZ25UDlYYgvj4verY4ShlP2FS3hHBj/rskJTTrNHdZzJHGZgFXSoHYKXG9AhYLVcnCs9YOAdg2U=';
+
+  Dynamsoft.WebTwainEnv.ProductKey = 'f0068NQAAAHyXpWtN2w3efU3yzeztfKjyTKGgVzH2+qlGxuJ85jP21VXJIP0NRLox9ELZUNc/VA+jzAupkSMA+EnH9dq/H3o=';
+  Dynamsoft.WebTwainEnv.Trial = false;
+
+  // Resources are webpack copied from myresources to /Resources which simulates our npm package
+  Dynamsoft.WebTwainEnv.ResourcesPath = "/Resources";
+  Dynamsoft.WebTwainEnv.AutoLoad = false;
+  Dynamsoft.WebTwainEnv.Containers = [{ContainerId: 'dwtcontrolContainer', Width: 830, Height: 350}];
+  Dynamsoft.WebTwainEnv.Load();
+  Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', Dynamsoft_OnReady);  // Register OnWebTwainReady event. This event fires as soon as Dynamic Web TWAIN is initialized and ready to be used
+};
 
 
 var DWObject;
